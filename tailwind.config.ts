@@ -15,6 +15,7 @@ const config: Config = {
         ytBtnHover: "#3d3d3d",
         ytBtnHoverLight: "#272727",
         ytBorder: "#2e2e2e",
+        ytBorderSideBar: "#3f3f3f",
         ytPlaceholder: "#888888",
         ytInput: "#121212",
       },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import MainLayout from "./MainLayout";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,7 +36,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${youtubeSansSemibold.variable} antialiased`}
       >
-        {children}
+        <MainLayout>
+          {children} {/* Render the children here */}
+        </MainLayout>
       </body>
     </html>
   );

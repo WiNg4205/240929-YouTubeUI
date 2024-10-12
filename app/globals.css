@@ -24,4 +24,31 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .scrollbox::-webkit-scrollbar {
+    width: 0.9em;
+    background: transparent;
+  }
+  .scrollbox::-webkit-scrollbar-thumb {
+    width: 0.5em;
+    background: transparent;
+  }
+  .scrollbox:hover::-webkit-scrollbar-thumb {
+    width: 0.5em;
+    border-radius: 6px;
+    border-left: 5px solid var(--background);
+    border-right: 5px solid var(--background);
+    background: #717171;
+  }
+  .scrollbox::-webkit-scrollbar-button:increment {
+    background-image: url('/chevron-down-solid.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .scrollbox::-webkit-scrollbar-button:decrement {
+    background-image: url('/chevron-up-solid.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
