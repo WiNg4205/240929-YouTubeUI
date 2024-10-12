@@ -20,10 +20,9 @@ export default function Header({toggleSideBar, setToggleSideBar}: Props) {
       </div>
 
       <div className="flex gap-4">
-        
-        <div className={`flex rounded-full h-10 bg-ytInput`}>
-          {!isFocused && <div className="w-8" />}
-          <div className={`pl-4 rounded-l-full flex border ${isFocused ? 'border-blue-500' : 'border-ytBorder'}`}>
+        <div className="flex rounded-full h-10">
+          {!isFocused && <div className="w-8 bg-background" />}
+          <div className={`bg-ytInput pl-4 rounded-l-full flex border ${isFocused ? 'border-blue-500' : 'border-ytBorder'}`}>
             {isFocused && <Image src="search.svg" alt="Search Icon" width={20} height={20} className="mr-3" />}
             <input
               className="bg-ytInput placeholder:text-ytPlaceholder min-w-128 outline-none"
