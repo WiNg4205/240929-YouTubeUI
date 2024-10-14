@@ -11,13 +11,15 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        ytBtn: "#222222",
-        ytBtnHover: "#3d3d3d",
-        ytBtnHoverLight: "#272727",
-        ytBorder: "#2e2e2e",
-        ytBorderSideBar: "#3f3f3f",
+        ytBtn: "var(--ytBtn)",
+        ytIcon: "var(--ytIcon)",
+        ytBtnHover: "var(--ytBtnHover)",
+        ytBtnHoverLight: "var(--ytBtnHoverLight)",
+        ytBorder: "var(--ytBorder)",
+        ytBorderSideBar: "var(--ytBorderSideBar)",
         ytPlaceholder: "#888888",
-        ytInput: "#121212",
+        ytInput: "var(--ytInput)",
+        ytInputText: "var(--ytInputText)"
       },
       fontFamily: {
         logo: ["var(--font-youtube-sans-semibold)"],

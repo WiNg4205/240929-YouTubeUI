@@ -5,12 +5,29 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --ytBtn: #f8f8f8;
+  --ytIcon: #0f0f0f;
+  --ytBtnHover: #d9d9d9;
+  --ytBtnHoverLight: #e5e5e5;
+  --ytBorder: #d3d3d3;
+  --ytBorderSideBar: #e5e5e5;
+  --ytPlaceHolder: #888888;
+  --ytInput: white;
+  --ytInputText: #111111;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0f0f0f;
     --foreground: #ededed;
+    --ytBtn: #222222;
+    --ytIcon: white;
+    --ytBtnHover: #3d3d3d;
+    --ytBtnHoverLight: #272727;
+    --ytBorder: #2e2e2e;
+    --ytBorderSideBar: #3f3f3f;
+    --ytInput: #121212;
+    --ytInputText: #ededed;
   }
 }
 
@@ -50,5 +67,12 @@ body {
     background-image: url('/chevron-up-solid.svg');
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+  .unhighlightable {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Non-prefixed version, currently supported by Chrome, Opera, etc. */
   }
 }
