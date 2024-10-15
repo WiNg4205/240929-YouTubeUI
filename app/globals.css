@@ -9,6 +9,7 @@
   --ytIcon: #0f0f0f;
   --ytBtnHover: #d9d9d9;
   --ytBtnHoverLight: #e5e5e5;
+  --ytBtnHoverText: #717171;
   --ytBorder: #d3d3d3;
   --ytBorderSideBar: #e5e5e5;
   --ytPlaceHolder: #888888;
@@ -24,6 +25,7 @@
     --ytIcon: white;
     --ytBtnHover: #3d3d3d;
     --ytBtnHoverLight: #272727;
+    --ytBtnHoverText: #605c5c;
     --ytBorder: #2e2e2e;
     --ytBorderSideBar: #3f3f3f;
     --ytInput: #121212;

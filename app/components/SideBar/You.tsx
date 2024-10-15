@@ -5,7 +5,7 @@ import LinkLayout from "./LinkLayout";
 export default function You() {
   const pathname = usePathname();
   return (
-    <div className="mt-3">
+    <div className="mt-3 pb-3 border-b border-ytBorderSideBar">
       <Link href="/you">
         <div className={`flex items-center gap-2 w-full h-10 px-3 rounded-lg text-ytIcon ${pathname === "/you" ? "bg-ytBtnHoverLight hover:bg-ytBtnHover" : "hover:bg-ytBtnHoverLight"} `}>
           <div className={`${pathname === "/you" ? "font-semibold" : ""} `}>You</div>

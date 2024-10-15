@@ -15,6 +15,7 @@ const config: Config = {
         ytIcon: "var(--ytIcon)",
         ytBtnHover: "var(--ytBtnHover)",
         ytBtnHoverLight: "var(--ytBtnHoverLight)",
+        ytBtnHoverText: "var(--ytBtnHoverText)",
         ytBorder: "var(--ytBorder)",
         ytBorderSideBar: "var(--ytBorderSideBar)",
         ytPlaceholder: "#888888",
