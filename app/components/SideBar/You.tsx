@@ -8,7 +8,7 @@ export default function You() {
     <div className="mt-3 pb-3 border-b border-ytBorderSideBar">
       <Link href="/you">
         <div className={`flex items-center gap-2 w-full h-10 px-3 rounded-lg text-ytIcon ${pathname === "/you" ? "bg-ytBtnHoverLight hover:bg-ytBtnHover" : "hover:bg-ytBtnHoverLight"} `}>
-          <div className={`${pathname === "/you" ? "font-semibold" : ""} `}>You</div>
+          <div className="font-semibold">You</div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
             <path fill-rule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clip-rule="evenodd" />
           </svg>
