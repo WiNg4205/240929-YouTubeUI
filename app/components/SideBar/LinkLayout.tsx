@@ -13,7 +13,7 @@ export default function LinkLayout({ children, currentRoute, route, text }: Prop
     <Link href={route} title={text}>
       <div className={`flex items-center gap-6 w-full h-10 px-3 rounded-lg text-ytIcon ${currentRoute === route ? "bg-ytBtnHoverLight hover:bg-ytBtnHover" : "hover:bg-ytBtnHoverLight"} `}>
         {children}
-        <div className={`text-sm ${currentRoute === route ? "font-semibold" : ""} `}>{text}</div>
+        <div className={`text-sm truncate ${currentRoute === route ? "font-semibold" : ""} `}>{text}</div>
       </div>
     </Link>
   )
