@@ -4,6 +4,7 @@ import videosData from "@/data/videos.json";
 import channelsData from "@/data/channels.json";
 import { Videos } from "@/app/types/videos";
 import { Channels } from "@/app/types/channel";
+import Thumbnail from "../components/Thumbnail";
 
 export default function Page() {
   const videos: Videos = videosData || [];
@@ -11,19 +12,20 @@ export default function Page() {
 
   return (
     <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4 pb-10">
-      {Object.entries(videos).map(([url, {title, channel}]) => (
-        <Link href={`/watch?v=${url}`} key={url} title={title} className="aspect-video">
-          <Image
-            src={`https://img.youtube.com/vi/${url}/0.jpg`}
-            alt="Video Thumbnail"
-            className="rounded-xl w-full h-full object-cover"
-            width={480}
-            height={360}
-          />
+      {Object.entries(videos).map(([url, { title, preview, channel }]) => (
+        <Link href={`/watch?v=${url}`} key={url} title={title}>
+          <Thumbnail url={url} preview={preview} />
           <div className="flex mt-3 gap-3">
-            <Link href={channel} className="z-10">
+            <Link href={channel} className="z-10" title="">
               <div className="size-9">
-                <Image src={`${channels[channel]["img"]}`} alt={`${channels[channel]["title"]} logo`} width={36} height={36} className="rounded-full" priority />
+                <Image
+                  src={`${channels[channel]["img"]}`}
+                  alt={`${channels[channel]["title"]} logo`}
+                  width={36}
+                  height={36}
+                  className="rounded-full"
+                  priority
+                />
               </div>
             </Link>
             <div>
@@ -33,7 +35,7 @@ export default function Page() {
               </Link>
             </div>
           </div>
-        </Link>        
+        </Link>
       ))}
     </div>
   )

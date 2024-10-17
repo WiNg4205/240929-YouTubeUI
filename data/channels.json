@@ -1,62 +1,77 @@
 {
   "/@LEMMiNO": {
     "title": "LEMMiNO",
-    "img": "/LEMMiNO.jpg"
+    "img": "/LEMMiNO.jpg",
+    "subscribers": "5.64M"
   },
   "/@OverSimplified": {
     "title": "OverSimplified",
-    "img": "/OverSimplified.jpg"
+    "img": "/OverSimplified.jpg",
+    "subscribers": "8.64M"
   },
   "/@BarelySociable": {
     "title": "Barely Sociable",
-    "img": "/BarelySociable.jpg"
+    "img": "/BarelySociable.jpg",
+    "subscribers": "1.36M"
   },
   "/@CNBC": {
     "title": "CNBC",
-    "img": "/CNBC.jpg"
+    "img": "/CNBC.jpg",
+    "subscribers": "3.63M"
   },
   "/@ProkoTV": {
     "title": "Proko",
-    "img": "/Proko.jpg"
+    "img": "/Proko.jpg",
+    "subscribers": "3.79M"
   },
   "/@mkbhd": {
     "title": "Marques Brownlee",
-    "img": "/Marques Brownlee.jpg"
+    "img": "/Marques Brownlee.jpg",
+    "subscribers": "19.6M"
   },
   "/@destiny": {
     "title": "Destiny",
-    "img": "/Destiny.jpg"
+    "img": "/Destiny.jpg",
+    "subscribers": "825K"
   },
   "/@LofiGirl": {
     "title": "Lofi Girl",
-    "img": "/Lofi Girl.jpg"
+    "img": "/Lofi Girl.jpg",
+    "subscribers": "14.5M"
   },
   "/@TLDRnewsGLOBAL": {
     "title": "TLDR News Global",
-    "img": "/TLDR News Global.jpg"
+    "img": "/TLDR News Global.jpg",
+    "subscribers": "774K"
   },
   "/@3blue1brown": {
     "title": "3Blue1Brown",
-    "img": "/3Blue1Brown.jpg"
+    "img": "/3Blue1Brown.jpg",
+    "subscribers": "6.56M"
   },
   "/@kurzgesagt": {
     "title": "Kurzgesagt – In a Nutshell",
-    "img": "/Kurzgesagt.jpg"
+    "img": "/Kurzgesagt.jpg",
+    "subscribers": "23M"
   },
   "/@Kraut_the_Parrot": {
     "title": "Kraut",
-    "img": "/Kraut.jpg"
+    "img": "/Kraut.jpg",
+    "subscribers": "599K"
   },
   "/@BridgesStudio": {
     "title": "Bridges Podcast",
-    "img": "/Bridges Podcast.jpg"
+    "img": "/Bridges Podcast.jpg",
+    "subscribers": "70.8K"
   },
   "/@PursuitofWonder": {
     "title": "Pursuit of Wonder",
-    "img": "/Pursuit of Wonder.jpg"
+    "img": "/Pursuit of Wonder.jpg",
+    "subscribers": "3.08M"
   },
   "/@AlternateHistoryHub": {
     "title": "AlternateHistoryHub",
-    "img": "/AlternateHistoryHub.jpg"
+    "img": "/AlternateHistoryHub.jpg",
+    "subscribers": "2.36M"
   }
 }

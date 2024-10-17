@@ -1,5 +1,6 @@
 export interface Video {
   title: string;
+  preview: string;
   channel: string;
 }
 
