@@ -23,6 +23,6 @@ export default function Thumbnail({url, preview}: Props) {
         width={480}
         height={360}
       />
-  </div>
+    </div>
   )
 }

@@ -19,8 +19,8 @@ export default function Page() {
             <Link href={channel} className="z-10" title="">
               <div className="size-9">
                 <Image
-                  src={`${channels[channel]["img"]}`}
-                  alt={`${channels[channel]["title"]} logo`}
+                  src={`${channels[channel].logo}`}
+                  alt={`${channels[channel].title} logo`}
                   width={36}
                   height={36}
                   className="rounded-full"
@@ -29,9 +29,9 @@ export default function Page() {
               </div>
             </Link>
             <div>
-              <h2 className="font-semibold text-sm line-clamp-2">{title}</h2>
+              <h2 className="font-medium line-clamp-2">{title}</h2>
               <Link href={channel} title={channels[channel]["title"]} className="z-10">
-                <span className="text-xs text-neutral-500">{channels[channel]["title"]}</span>
+                <span className="text-xs text-ytSubtext">{channels[channel]["title"]}</span>
               </Link>
             </div>
           </div>

@@ -17,10 +17,13 @@ const config: Config = {
         ytBtnHoverLight: "var(--ytBtnHoverLight)",
         ytBtnHoverText: "var(--ytBtnHoverText)",
         ytBorder: "var(--ytBorder)",
+        ytBorderBtnHover: "var(--ytBorderBtnHover)",
         ytBorderSideBar: "var(--ytBorderSideBar)",
         ytPlaceholder: "#888888",
         ytInput: "var(--ytInput)",
-        ytInputText: "var(--ytInputText)"
+        ytInputText: "var(--ytInputText)",
+        ytSubtext: "var(--ytSubtext)",
+        ytLink: "var(--ytLink)"
       },
       fontFamily: {
         logo: ["var(--font-youtube-sans-semibold)"],

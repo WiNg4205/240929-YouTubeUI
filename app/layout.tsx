@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Roboto } from 'next/font/google'
 import "./globals.css";
 import MainLayout from "./MainLayout";
 
@@ -18,6 +19,11 @@ const youtubeSansSemibold = localFont({
   variable: "--font-youtube-sans-semibold",
 });
 
+const roboto = Roboto({
+  weight: ['400', '500', '700', '900'],
+  subsets: ['latin'],
+})
+
 export const metadata: Metadata = {
   title: "YouTube",
   description: "A YouTube UI clone",
@@ -34,10 +40,10 @@ export default function RootLayout({
         <link rel="icon" href="/youtube-icon.svg" sizes="any" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${youtubeSansSemibold.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${youtubeSansSemibold.variable} ${roboto.className} antialiased`}
       >
         <MainLayout>
-          {children} {/* Render the children here */}
+          {children}
         </MainLayout>
       </body>
     </html>

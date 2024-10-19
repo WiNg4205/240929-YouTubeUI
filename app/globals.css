@@ -5,16 +5,19 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --ytBtn: #f8f8f8;
+  --ytBtn: #f2f2f2;
   --ytIcon: #0f0f0f;
   --ytBtnHover: #d9d9d9;
   --ytBtnHoverLight: #e5e5e5;
   --ytBtnHoverText: #717171;
   --ytBorder: #d3d3d3;
+  --ytBorderBtnHover: #cecece;
   --ytBorderSideBar: #e5e5e5;
   --ytPlaceHolder: #888888;
   --ytInput: white;
   --ytInputText: #111111;
+  --ytSubtext: #606060;
+  --ytLink: #065fd4;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,16 +30,19 @@
     --ytBtnHoverLight: #272727;
     --ytBtnHoverText: #605c5c;
     --ytBorder: #2e2e2e;
+    --ytBorderBtnHover: #656565;
     --ytBorderSideBar: #3f3f3f;
     --ytInput: #121212;
     --ytInputText: #ededed;
+    --ytSubtext: #aaaaaa;
+    --ytLink: #3ea6ff;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {

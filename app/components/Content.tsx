@@ -13,7 +13,7 @@ export default function Content({ toggleSideBar, children }: Props) {
     window.scrollTo(0, 0);
   }, [pathname]);
   return (
-    <div className={`mt-14 pr-6 ${toggleSideBar ? 'ml-60' : 'ml-0'} h-screen p-4`}>
+    <div className={`mt-14 pr-6 ${toggleSideBar ? 'ml-60' : 'ml-0'} h-screen px-4`}>
       {children}
     </div>
   );

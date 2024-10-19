@@ -1,7 +1,11 @@
 export interface Channel {
   title: string;
-  img: string;
+  logo: string;
+  background: string;
   subscribers: string;
+  description: string;
+  links: string[];
+  videos: string[];
 }
 
 export type Channels = {
