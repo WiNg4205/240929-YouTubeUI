@@ -21,7 +21,7 @@ const VideoContent = () => {
   }
 
   return (
-    <div className="flex w-full justify-between">
+    <div className="flex w-full justify-between px-10 pt-6">
       <div className="object-fill flex-1 px-6">
         <iframe
           className="rounded-xl w-full aspect-video"

@@ -11,7 +11,7 @@ export default function Header({toggleSideBar, setToggleSideBar}: Props) {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <div className="z-20 bg-background fixed top-0 w-screen flex justify-between items-center px-4 h-14">
+    <div className="z-20 bg-background fixed top-0 w-screen flex justify-between items-center pl-4 pr-10 h-14">
       <div className="flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="white" className="size-10 p-2 hover:bg-ytBtnHoverLight rounded-full cursor-pointer" onClick={() => setToggleSideBar(!toggleSideBar)}>
           <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
