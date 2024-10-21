@@ -4,7 +4,7 @@ export async function GET(req: Request, { params }: { params: { url: string } })
   const video = await data.json();
   const { viewCount, likeCount } = video.items[0].statistics;
   const videoData = { viewCount, likeCount };
-  
+
   if (videoData) {
     return new Response(JSON.stringify(videoData), {
       status: 200,
