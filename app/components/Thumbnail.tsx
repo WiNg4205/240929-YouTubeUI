@@ -5,7 +5,7 @@ type Props = {
   preview: string
 }
 
-export default function Thumbnail({url, preview}: Props) {
+export default function Thumbnail({ url, preview }: Props) {
   return (
     <div className="relative group">
       <Image
