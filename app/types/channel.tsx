@@ -1,13 +1,12 @@
 export interface Channel {
-  title: string;
-  logo: string;
-  background: string;
-  subscribers: string;
+  _id: string;
+  url: string;
+  banner: string;
+  customUrl: string;
   description: string;
-  links: string[];
+  subscriberCount: string;
+  thumbnail: string;
+  title: string;
   videos: string[];
 }
 
-export type Channels = {
-  [key: string]: Channel;
-}

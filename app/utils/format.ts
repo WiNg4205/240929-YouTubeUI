@@ -1,4 +1,4 @@
-export function formatNumber(num: number) {
+export function formatLikeCount(num: number) {
   if (num >= 1e6) {
     if (num.toString().length === 7) {
       return Math.floor(num / 1e6 * 10) / 10 + 'M';
@@ -9,6 +9,17 @@ export function formatNumber(num: number) {
       return Math.floor(num / 1e3 * 10) / 10 + 'K';
     }
     return Math.floor(num / 1e3) + 'K';
+  }
+  return num.toString();
+}
+
+export function formatSubscriberCount(num: number): string {
+  if (num >= 1e6) {
+    const rounded = Math.floor(num / 1e6 * Math.pow(10, 3)) / Math.pow(10, 3);
+    return rounded.toString() + 'M';
+  } else if (num >= 1e3) {
+    const rounded = Math.floor(num / 1e3 * Math.pow(10, 3)) / Math.pow(10, 3);
+    return rounded.toString() + 'K';
   }
   return num.toString();
 }

@@ -1,7 +1,14 @@
 export interface Video {
+  _id: string;
+  url: string;
+  channelId: string;
+  description: string;
+  likeCount: string;
+  publishDate: string;
   title: string;
-  preview: string;
-  channel: string;
+  uploadTime: string;
+  viewCount: string;
+  viewCountShort: string;
 }
 
 export type Videos = {

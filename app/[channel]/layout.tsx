@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
 import { usePathname } from "next/navigation";
-import channelsData from "@/data/channels.json";
-import { Channels } from "@/app/types/channel";
+import fetcher from "@/app/utils/fetcher";
+import useSWR from "swr";
 
 interface ChannelProps {
   params: {
@@ -14,50 +14,41 @@ interface ChannelProps {
   children: ReactNode;
 }
 
-export default function Channel({ params, children }: ChannelProps) {
-  const channel = params.channel.replace(/%40/g, '@');
-  const channels: Channels = channelsData || [];
-  const channelData = channels[`/${channel}`];
+export default function ChannelPage({ params, children }: ChannelProps) {
+  const { data } = useSWR(`api/getChannelData/${params.channel}`, fetcher);
+  const { title, subscriberCount, description, banner, thumbnail, customUrl, videos } = data || 0;
   const pathname = usePathname();
 
   return (
     <div className="">
       <Image
-        src={channelData.background}
-        alt={`${channelData.title} background image`}
+        src={banner}
+        alt={`${title} background image`}
         width={1707}
         height={282}
-        className="rounded-xl"
+        className="rounded-xl object-cover"
       />
       <div className="flex items-center gap-4 mt-4">
         <Image
-        src={channelData.logo}
-        alt={`${channelData.title} logo`}
+        src={thumbnail}
+        alt={`${title} logo`}
           width={480}
           height={360}
           className="size-40 rounded-full"
         />
         <div>
-          <h1 className="text-4xl font-extrabold">{channelData.title}</h1>
-          <h3 className="text-sm text-ytSubtext mt-2">{channel} • {channelData.subscribers} subscribers • {channelData.videos.length} videos</h3>
-          <p className="text-sm text-ytSubtext mt-2 max-w-96 truncate">{channelData.description}</p>
-            {channelData.links[0] &&
-              <p className="text-sm mt-2">
-                <a href={`https://${channelData.links[0]}`} target="_blank" rel="noopener noreferrer" className="text-ytLink">
-                  {channelData.links[0]}
-                </a>
-                <span> and <b className="font-medium">{channelData.links.length - 1} more link{channelData.links.length - 1 > 1 ? "s" : ""}</b></span>
-              </p>            
-            }
+          <h1 className="text-4xl font-extrabold">{title}</h1>
+          <h3 className="text-sm text-ytSubtext mt-2">{customUrl} • {subscriberCount} subscribers • {videos && videos.length} videos</h3>
+          <p className="text-sm text-ytSubtext mt-2 max-w-96 truncate">{description}</p>
           <div className="bg-foreground text-background rounded-full inline-flex items-center px-4 mt-3 text-sm h-9 font-medium">Subscribe</div>
         </div>
       </div>
       <div className="h-12 border-b border-b-ytBorderSideBar flex">
-        <Link href={`/${channel}/featured`}>
-          <div className={`mr-6 px-[2px] h-full  ${pathname === `/${channel}` || pathname === `/${channel}/featured` ? 'text-foreground border-b-2 border-b-foreground' : 'text-ytSubtext'} font-medium flex items-center`}>Home</div>
+        <Link href={`/${customUrl}/featured`}>
+          <div className={`mr-6 px-[2px] h-full  ${pathname === `/${customUrl}` || pathname === `/${customUrl}/featured` ? 'text-foreground border-b-2 border-b-foreground' : 'text-ytSubtext'} font-medium flex items-center`}>Home</div>
         </Link>
-        <Link href={`/${channel}/videos`}>
-          <div className={`mr-6 px-[2px] h-full  ${pathname === `/${channel}/videos` ? 'text-foreground border-b-2 border-b-foreground' : 'text-ytSubtext'} font-medium flex items-center`}>Videos</div>
+        <Link href={`/${customUrl}/videos`}>
+          <div className={`mr-6 px-[2px] h-full  ${pathname === `/${customUrl}/videos` ? 'text-foreground border-b-2 border-b-foreground' : 'text-ytSubtext'} font-medium flex items-center`}>Videos</div>
         </Link>
         <div className="text-ytSubtext flex">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5 self-center">
