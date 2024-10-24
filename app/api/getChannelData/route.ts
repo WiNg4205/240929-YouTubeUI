@@ -1,4 +1,5 @@
 import { MongoClient } from "mongodb";
+import { NextResponse } from "next/server";
 
 const uri = `mongodb+srv://serverless:${process.env.MONGO_PWD}@serverlessinstance0.pmg3ogh.mongodb.net/?retryWrites=true&w=majority&appName=ServerlessInstance0`;
 const client = new MongoClient(uri);
@@ -10,16 +11,10 @@ export async function GET() {
     const collection = database.collection("channels");
     const channels = await collection.find({}).toArray();
 
-    return new Response(JSON.stringify(channels), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    return NextResponse.json(channels, { status: 200 });
   } catch (error) {
     console.error("Error:", error);
-    return new Response(JSON.stringify({ error: "Failed to fetch channels" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return NextResponse.json({ error: "Failed to fetch channels" }, { status: 500 });
   } finally {
     await client.close();
   }

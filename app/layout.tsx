@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import { Roboto } from 'next/font/google'
 import "./globals.css";
 import MainLayout from "./MainLayout";
+import ChannelsProvider from "./context/ChannelsContext";
+import VideosProvider from "./context/VideosContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -42,9 +44,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${youtubeSansSemibold.variable} ${roboto.className} antialiased`}
       >
-        <MainLayout>
-          {children}
-        </MainLayout>
+        <ChannelsProvider>
+          <VideosProvider>
+            <MainLayout>
+              {children}
+            </MainLayout>            
+          </VideosProvider>
+        </ChannelsProvider>
       </body>
     </html>
   );

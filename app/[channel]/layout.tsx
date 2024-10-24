@@ -5,8 +5,8 @@ import Link from "next/link";
 import { ReactNode, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
-import fetcher from "@/app/utils/fetcher";
-import useSWR from "swr";
+import { useChannels } from "@/app/context/ChannelsContext";
+import { Channel, emptyChannel } from "@/app/types/channel";
 
 interface ChannelProps {
   params: {
@@ -40,8 +40,9 @@ function Modal({ description, setOpenModal }: ModalProps) {
 
 export default function ChannelPage({ params, children }: ChannelProps) {
   const [openModal, setOpenModal] = useState(false);
-  const { data } = useSWR(`api/getChannelData/${params.channel}`, fetcher);
-  const { title, subscriberCount, description, banner, thumbnail, customUrl, videos } = data || 0;
+  const { channels } = useChannels();
+  const channel = channels.find((channel: Channel) => channel.customUrl === params.channel.replace(/%40/g, '@')) || emptyChannel;
+  const { title, subscriberCount, description, banner, thumbnail, customUrl, videos } = channel || 0;
   const pathname = usePathname();
 
   return (
@@ -53,6 +54,7 @@ export default function ChannelPage({ params, children }: ChannelProps) {
         width={1707}
         height={282}
         className="rounded-xl object-cover"
+        priority
       />
       <div className="flex items-center gap-4 mt-4">
         <Image
@@ -61,6 +63,7 @@ export default function ChannelPage({ params, children }: ChannelProps) {
           width={480}
           height={360}
           className="size-40 rounded-full"
+          priority
         />
         <div>
           <h1 className="text-4xl font-extrabold">{title}</h1>

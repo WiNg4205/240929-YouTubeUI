@@ -4,6 +4,8 @@ import { useState, ReactNode } from "react";
 import Content from "./components/Content";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar/SideBar";
+import { useVideos } from "./context/VideosContext";
+import { useChannels } from "./context/ChannelsContext";
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -11,6 +13,12 @@ interface MainLayoutProps {
 
 export default function MainLayout({ children }: MainLayoutProps) {
   const [toggleSideBar, setToggleSideBar] = useState(true);
+  const { videos } = useVideos();
+  const { channels } = useChannels();
+
+  if (videos.length === 0 || channels.length === 0) {
+    return <div>LOADING...</div>;
+  }
 
   return (
     <div>

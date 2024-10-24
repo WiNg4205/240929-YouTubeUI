@@ -10,3 +10,16 @@ export interface Channel {
   videos: string[];
 }
 
+export type Channels = Channel[]
+
+export const emptyChannel: Channel = {
+  _id: '',
+  url: '',
+  banner: '',
+  customUrl: '',
+  description: '',
+  subscriberCount: '0',
+  thumbnail: '',
+  title: '',
+  videos: [],
+};

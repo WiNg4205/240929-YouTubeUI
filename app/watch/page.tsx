@@ -3,29 +3,29 @@
 import { Suspense, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import useSWR from "swr";
 import { useSearchParams } from 'next/navigation';
 import Thumbnail from "@/app/components/Thumbnail";
-import fetcher from "@/app/utils/fetcher";
 import Description from "@/app/components/Description";
-import { Video } from "@/app/types/videos";
-import { Channel } from "@/app/types/channel";
+import { emptyVideo, Video } from "@/app/types/video";
+import { Channel, emptyChannel } from "@/app/types/channel";
+import { useVideos } from "../context/VideosContext";
+import { useChannels } from "../context/ChannelsContext";
 
-const VideoContent = () => {
+function VideoContent() {
   const searchParams = useSearchParams();
   const v = searchParams.get('v');
-  const { data: videoData } = useSWR(`api/getVideoData/${v}`, fetcher);
-  const { data: videosData } = useSWR("api/getVideoData", fetcher);
-  const { title: videoTitle, viewCount, viewCountShort, likeCount, description, publishDate, uploadTime, channelId } = videoData || 0;
-  const { data: channelsData } = useSWR("api/getChannelData", fetcher);
-  const { data: channelData } = useSWR(`api/getChannelData/${channelId}`, fetcher);
-  const { title: channelTitle, customUrl, thumbnail, subscriberCount } = channelData || 0;
+  const { videos } = useVideos();
+  const { channels } = useChannels();
+  const video = videos.find((video: Video) => video.url === v) || emptyVideo;
+  const { title: videoTitle, viewCount, viewCountShort, likeCount, description, publishDate, uploadTime, channelId } = video;
+  const channel = channels.find((channel: Channel) => channel.url === channelId) || emptyChannel;
+  const { title: channelTitle, customUrl, thumbnail, subscriberCount } = channel || 0;
   const titleRef = useRef<HTMLHeadingElement>(null);
   const getChannelByUrl = (url: string) => {
-    return channelsData.find((obj: Channel) => obj.url === url);
+    return channels.find((obj: Channel) => obj.url === url) || emptyChannel;
   };
   const getVideoByUrl = (url: string) => {
-    return videosData.find((obj: Video) => obj.url === url);
+    return videos.find((obj: Video) => obj.url === url) || emptyVideo;
   };
 
   return (
@@ -88,10 +88,10 @@ const VideoContent = () => {
         <Description viewCount={viewCount} viewCountShort={viewCountShort} publishDate={publishDate} description={description} uploadTime={uploadTime} titleRef={titleRef} />
       </div>
       <div className="w-96">
-        {videosData && channelsData && videosData.map((video: Video) => (
+        {videos.map((video: Video) => (
           <Link href={`/watch?v=${video.url}`} key={video.url} title={video.title} className="flex gap-2">
             <div className="h-24 aspect-video mb-2 group">
-              <Thumbnail url={video.url} preview="https://i.ytimg.com/an_webp/5u7euN1HTuU/mqdefault_6s.webp?du=3000&sqp=COqJwrgG&rs=AOn4CLDhdRY6uz617sfPtrRycyO7wklFtA" />
+              <Thumbnail url={video.url} preview={video.preview} />
             </div>
             <div>
               <h2 className="font-medium text-sm line-clamp-2">{video.title}</h2>

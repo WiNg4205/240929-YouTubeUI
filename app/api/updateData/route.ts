@@ -1,7 +1,9 @@
 import { MongoClient } from "mongodb";
 import videoList from "@/data/videoList.json";
 import channelList from "@/data/channelList.json";
+import previewList from "@/data/previewList.json";
 import { formatLikeCount, formatSubscriberCount, getTimeDifference } from "@/app/utils/format";
+import { NextResponse } from "next/server";
 
 const uri = `mongodb+srv://serverless:${process.env.MONGO_PWD}@serverlessinstance0.pmg3ogh.mongodb.net/?retryWrites=true&w=majority&appName=ServerlessInstance0`;
 const client = new MongoClient(uri);
@@ -47,8 +49,10 @@ export async function PUT() {
         const { title, description, publishedAt, channelId } = videoStats.items[0].snippet;
         const publishDate = new Date(publishedAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
         const uploadTime = getTimeDifference(publishedAt);
+        const previews = previewList as Record<string, string>;
+        const preview: string = previews[url];
 
-        const videoData = { url, title, viewCount, viewCountShort, likeCount, description, publishDate, uploadTime, channelId };
+        const videoData = { url, title, viewCount, viewCountShort, likeCount, description, publishDate, uploadTime, channelId, preview };
 
         await videoCollection.updateOne(
           { url },
@@ -71,8 +75,15 @@ export async function PUT() {
         }
       }
     }
+    return NextResponse.json({ message: "Success", status: 200 });
+    
   } catch (error) {
     console.error("Error:", error);
+    let errorMessage = "Unknown error occurred";
+    if (error instanceof Error) {
+      errorMessage = error.message;
+    }
+    return NextResponse.json({ message: "Error occurred", error: errorMessage, status: 500 });
   } finally {
     await client.close();
   }
