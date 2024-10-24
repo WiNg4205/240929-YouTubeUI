@@ -23,7 +23,8 @@ const config: Config = {
         ytInput: "var(--ytInput)",
         ytInputText: "var(--ytInputText)",
         ytSubtext: "var(--ytSubtext)",
-        ytLink: "var(--ytLink)"
+        ytLink: "var(--ytLink)",
+        ytModal: "var(--ytModal)"
       },
       fontFamily: {
         logo: ["var(--font-youtube-sans-semibold)"],

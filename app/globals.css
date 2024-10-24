@@ -18,6 +18,7 @@
   --ytInputText: #111111;
   --ytSubtext: #606060;
   --ytLink: #065fd4;
+  --ytModal: white;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,6 +37,7 @@
     --ytInputText: #ededed;
     --ytSubtext: #aaaaaa;
     --ytLink: #3ea6ff;
+    --ytModal: #212121;
   }
 }
 

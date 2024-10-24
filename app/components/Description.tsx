@@ -20,7 +20,6 @@ export default function Description({
 }: Props) {
   const [expanded, setExpanded] = useState(false);
   const searchParams = useSearchParams();
-  // fetch("api/updateData", {method: "PUT"});
 
   useEffect(() => {
     setExpanded(false);
