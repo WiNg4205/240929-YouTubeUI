@@ -16,7 +16,10 @@ export async function PUT() {
     const videoCollection = database.collection("videos");
 
     for (const url of channelList) {
-      const stats = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet,brandingSettings&id=${url}&key=${process.env.API_KEY}`);
+      const stats = await fetch(
+        `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet,brandingSettings&id=${url}&key=${process.env.API_KEY}`,
+      { cache: "no-store" }
+    );
       const channelStats = await stats.json();
 
       if (channelStats.items.length > 0) {
@@ -38,7 +41,10 @@ export async function PUT() {
     }
 
     for (const url of videoList) {
-      const stats = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${url}&key=${process.env.API_KEY}`);
+      const stats = await fetch(
+        `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${url}&key=${process.env.API_KEY}`,
+        { cache: "no-store" }
+      );
       const videoStats = await stats.json();
 
       if (videoStats.items.length > 0) {
@@ -51,7 +57,9 @@ export async function PUT() {
         const uploadTime = getTimeDifference(publishedAt);
         const previews = previewList as Record<string, string>;
         const preview: string = previews[url];
-
+        if (url === "rq5ktSCM-tA") {
+          console.log(videoStats.items[0].statistics)
+        }
         const videoData = { url, title, viewCount, viewCountShort, likeCount, description, publishDate, uploadTime, channelId, preview };
 
         await videoCollection.updateOne(
