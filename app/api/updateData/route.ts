@@ -8,7 +8,7 @@ import { NextResponse } from "next/server";
 const uri = `mongodb+srv://serverless:${process.env.MONGO_PWD}@serverlessinstance0.pmg3ogh.mongodb.net/?retryWrites=true&w=majority&appName=ServerlessInstance0`;
 const client = new MongoClient(uri);
 
-export async function PUT() {
+export async function GET() {
   try {
     await client.connect();
     const database = client.db("YouTubeClone");
@@ -57,9 +57,6 @@ export async function PUT() {
         const uploadTime = getTimeDifference(publishedAt);
         const previews = previewList as Record<string, string>;
         const preview: string = previews[url];
-        if (url === "rq5ktSCM-tA") {
-          console.log(videoStats.items[0].statistics)
-        }
         const videoData = { url, title, viewCount, viewCountShort, likeCount, description, publishDate, uploadTime, channelId, preview };
 
         await videoCollection.updateOne(
