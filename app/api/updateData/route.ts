@@ -41,10 +41,7 @@ export async function GET() {
     }
 
     for (const url of videoList) {
-      const stats = await fetch(
-        `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${url}&key=${process.env.API_KEY}`,
-        { cache: "no-store" }
-      );
+      const stats = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${url}&key=${process.env.API_KEY}`);
       const videoStats = await stats.json();
 
       if (videoStats.items.length > 0) {
